@@ -1,24 +1,34 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { useState } from 'react';
 import './App.css';
+import Navbar from './Components/Layout/Navbar';
+import AuthForm from './Components/Auth/AuthForm';
+import Home from './Components/Home/Home';
 
 function App() {
+  const siteTitle = 'WickedGames';
+  const navLinks = [ 'Home', 'About', 'Games', 'Contact' ];
+  const promoGame = 'RuneScape';
+
+  // isAuthenticated - state
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [token, setToken] = useState('');
+
+  const login = (sessionToken) => {
+    // update auth status - isAuthenticated
+    setIsAuthenticated(true);
+
+    // store our token
+    setToken(sessionToken);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="app">
+      <Navbar style={{ backgroundColor: 'blue' }} title={siteTitle} links={navLinks} promoGame={promoGame} />
+      <div className="app-text">
+
+        {isAuthenticated ? <Home tokenProp={token} /> : <AuthForm login={login} /> }
+
+      </div>
     </div>
   );
 }

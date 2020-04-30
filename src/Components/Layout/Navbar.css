@@ -1,0 +1,28 @@
+.nav {
+  color: slateblue;
+}
+
+.nav-link {
+  color: slateblue;
+  margin: 1em;
+}
+
+.nav-link:hover {
+  color: #8674ff;
+  margin: 1em;
+  cursor: pointer;
+}
+
+.promo-link:hover {
+  color: #fdc0fd;
+  cursor: pointer;
+}
+
+.divider {
+  width: 90%;
+  border-color: slateblue;
+}
+
+.promo-link {
+  font-size: .5rem;
+}
