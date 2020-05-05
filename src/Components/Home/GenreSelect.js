@@ -27,14 +27,23 @@ const gameData = [
 // mock data - genres & titles
 // state value - for genre selected
 
+const styles = {
+  container: {
+    marginTop: '1em'
+  },
+  span: {
+    margin: '0 1em',
+  }
+}
+
 const GenreSelect = () => {
   const [genreSelected, setGenreSelected] = useState('');
   return (
-    <div>
+    <div style={styles.container}>
       <div>
-        <p onClick={() => setGenreSelected('Simulation')}>Simulation</p>
-        <p onClick={() => setGenreSelected('MMORPG')}>MMORPG</p>
-        <p onClick={() => setGenreSelected('RPG')}>RPG</p>
+        <span style={styles.span} onClick={() => setGenreSelected('Simulation')}>Simulation</span>
+        <span style={styles.span} onClick={() => setGenreSelected('MMORPG')}>MMORPG</span>
+        <span style={styles.span} onClick={() => setGenreSelected('RPG')}>RPG</span>
       </div>
       <div>
       {
